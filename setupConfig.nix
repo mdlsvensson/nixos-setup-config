@@ -13,15 +13,17 @@ in rec {
       example = "x86_64-linux";
       description = "The system architecture.";
     };
-    user.name = mkOption {
-      type = types.str;
-      example = "myUsername";
-      description = "Login username.";
-    };
-    user.homeDirectory = mkOption {
-      type = types.path;
-      example = /home/myUsername;
-      description = "Path to the user home directory.";
+    user = {
+      name = mkOption {
+        type = types.str;
+        example = "myUsername";
+        description = "Login username.";
+      };
+      homeDirectory = mkOption {
+        type = types.path;
+        example = /home/myUsername;
+        description = "Path to the user home directory.";
+      };
     };
     timeZone = mkOption {
       type = types.str;
