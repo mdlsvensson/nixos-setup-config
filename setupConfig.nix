@@ -35,15 +35,23 @@ in rec {
       example = "en_US.UTF-8";
       description = "The default locale setting.";
     };
-    git.userName = mkOption {
-      type = types.str;
-      example = "myGitUsername";
-      description = "The git username setting.";
-    };
-    git.userEmail = mkOption {
-      type = types.str;
-      example = "myGitEmail@gmail.com";
-      description = "The git email setting.";
+    git = {
+      userName = mkOption {
+        type = types.str;
+        example = "myGitUsername";
+        description = "The git username setting.";
+      };
+      userEmail = mkOption {
+        type = types.str;
+        example = "myGitEmail@gmail.com";
+        description = "The git email setting.";
+      };
+      initDefaultBranch = mkOption {
+        type = types.str;
+        default = "main";
+        example = "main";
+        description = "The default branch for git init.";
+      };
     };
   };
 }
