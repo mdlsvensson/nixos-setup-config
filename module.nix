@@ -54,7 +54,7 @@ in rec {
       example = "Europe/Stockholm";
       description = "The system time zone setting.";
     };
-    defaultLocale = mkOption {
+    locale = mkOption {
       type = types.str;
       example = "en_US.UTF-8";
       description = "The system locale setting.";
@@ -66,6 +66,6 @@ in rec {
     boot.initrd.kernelModules = cfg.initrd.kernelModules;
     services.xserver.videoDrivers = cfg.xserver.videoDrivers;
     time.timeZone = cfg.timeZone;
-    i18n.defaultLocale = cfg.defaultLocale;
+    i18n.defaultLocale = cfg.locale;
   };
 }
