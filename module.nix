@@ -9,19 +9,19 @@ in rec {
     };
     kernelModules = mkOption {
       type = types.listOf types.str;
-      default = [ ];
+      default = [];
       example = [ "amdgpu" ];
       description = "https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/system/boot/kernel.nix";
     };
     initrd.kernelModules = mkOption {
       type = types.listOf types.str;
-      default = [ ];
+      default = [];
       example = [ "amdgpu" ];
       description = "https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/system/boot/kernel.nix";
     };
     xserver.videoDrivers = mkOption {
       type = types.listOf types.str;
-      default = [ ];
+      default = [];
       example = [ "nvidia" ];
       description = "Tell Xorg what video drivers to use.";
     };
@@ -49,11 +49,23 @@ in rec {
         description = "The git email setting.";
       };
     };
+    timeZone = mkOption {
+      type = types.str;
+      example = "Europe/Stockholm";
+      description = "The system time zone setting.";
+    };
+    defaultLocale = mkOption {
+      type = types.str;
+      example = "en_US.UTF-8";
+      description = "The system locale setting.";
+    };
   };
 
   config = {
     boot.kernelModules = cfg.kernelModules;
     boot.initrd.kernelModules = cfg.initrd.kernelModules;
     services.xserver.videoDrivers = cfg.xserver.videoDrivers;
+    time.timeZone = cfg.timeZone;
+    i18n.defaultLocale = cfg.defaultLocale;
   };
 }
