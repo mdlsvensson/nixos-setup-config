@@ -1,4 +1,5 @@
-{ config, ... }: 
+{ lib, config, ... }:
+with lib;
 let cfg = config.setupConfig;
 in rec {
   options.setupConfig = {
