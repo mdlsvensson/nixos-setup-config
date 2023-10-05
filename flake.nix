@@ -1,5 +1,5 @@
 {
-  description = "NixOS module for defining local configuration data.";
+  description = "Host specific variables for my nixos config.";
 
   outputs = { ... }: {
     host = "host";
