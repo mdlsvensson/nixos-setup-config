@@ -3,9 +3,5 @@
 
   outputs = { ... }: rec {
     host = "host";
-    nixosModules = rec {
-      setupConfig = import ./module.nix { inherit host; };
-      default = setupConfig;
-    };
   };
 }
